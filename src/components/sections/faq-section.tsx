@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SectionHeader } from "@/components/section-header";
-import { siteConfig } from "@/lib/config";
+import { siteConfig } from "@/lib/site";
 
 export function FAQSection() {
   const { faqSection } = siteConfig;

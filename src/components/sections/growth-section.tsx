@@ -1,7 +1,7 @@
 "use client";
 
 import { SectionHeader } from "@/components/section-header";
-import { siteConfig } from "@/lib/config";
+import { siteConfig } from "@/lib/site";
 
 export function GrowthSection() {
   const { title, description, items } = siteConfig.growthSection;

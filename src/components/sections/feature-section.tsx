@@ -1,6 +1,6 @@
 import { SectionHeader } from "@/components/section-header";
 import { Feature as FeatureComponent } from "@/components/ui/feature-slideshow";
-import { siteConfig } from "@/lib/config";
+import { siteConfig } from "@/lib/site";
 
 export function FeatureSection() {
   const { title, description, items } = siteConfig.featureSection;

@@ -1,5 +1,5 @@
 import { HeroVideoSection } from "@/components/sections/hero-video-section";
-import { siteConfig } from "@/lib/config";
+import { siteConfig } from "@/lib/site";
 import Link from "next/link";
 
 export function HeroSection() {
