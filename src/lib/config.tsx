@@ -1,3 +1,4 @@
+"use client"
 import { FirstBentoAnimation } from "@/components/first-bento-animation";
 import { FourthBentoAnimation } from "@/components/fourth-bento-animation";
 import { SecondBentoAnimation } from "@/components/second-bento-animation";
@@ -1048,3 +1049,4 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
