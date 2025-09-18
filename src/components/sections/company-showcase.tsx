@@ -1,3 +1,4 @@
+"use client"
 import { siteConfig } from "@/lib/site";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
