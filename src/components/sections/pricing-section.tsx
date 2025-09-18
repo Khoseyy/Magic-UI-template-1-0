@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import { SectionHeader } from "@/components/section-header";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";

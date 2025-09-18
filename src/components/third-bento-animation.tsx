@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import { colorWithOpacity, getRGBA } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
 import { motion, useInView } from "@/lib/motion-shim";

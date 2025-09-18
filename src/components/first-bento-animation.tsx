@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { Icons } from "@/components/icons";
 import {
   Reasoning,
