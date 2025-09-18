@@ -1,10 +1,30 @@
+// src/lib/site.ts
 export const siteConfig = {
-  name: "SkyAgent",
-  url: "https://agent-magicui.vercel.app",
-  description: "Your template for building AI-powered agents with Magic UI.",
+  name: "Your Brand",
+
+  nav: {
+    links: [
+      { title: "Home", href: "#" },
+      { title: "Features", href: "#features" },
+      { title: "Pricing", href: "#pricing" },
+      { title: "FAQ", href: "#faq" },
+    ],
+  },
+
+  // 👇 These values are used by the hero section.
+  hero: {
+    badgeIcon: "✨",                // <- this fixes the error
+    badgeText: "Now live",
+    title: "AI that ships beautiful sites",
+    subtitle:
+      "Start from a stunning template and customize copy, colors, and sections in minutes.",
+    primaryCta: { label: "Get started", href: "#pricing" },
+    secondaryCta: { label: "See features", href: "#features" },
+  },
+
   links: {
-    twitter: "https://x.com/dillionverma",
-    github: "https://github.com/dillionverma",
+    twitter: "https://twitter.com",
+    github: "https://github.com/Khoseyy/Magic-UI-template-1-0",
   },
 };
 
