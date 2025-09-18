@@ -27,9 +27,10 @@ export const siteConfig = {
   companyShowcase: {
     title: "Trusted by leading companies",
     companyLogos: [
-      { name: "Company 1", logo: "/logo1.png" },
-      { name: "Company 2", logo: "/logo2.png" },
-      { name: "Company 3", logo: "/logo3.png" },
+      { id: "company1", name: "Company 1", logo: "/logo1.png" },
+      { id: "company2", name: "Company 2", logo: "/logo2.png" },
+      { id: "company3", name: "Company 3", logo: "/logo3.png" },
+      { id: "company4", name: "Company 4", logo: "/logo4.png" },
     ],
   },
 
@@ -89,6 +90,11 @@ export const siteConfig = {
         question: "Is it suitable for beginners?",
         answer: "Yes, our platform is designed to be user-friendly for all skill levels.",
       },
+      {
+        id: "faq3",
+        question: "What support do you offer?",
+        answer: "We provide 24/7 customer support and comprehensive documentation.",
+      },
     ],
   },
 
@@ -105,20 +111,39 @@ export const siteConfig = {
   pricing: {
     title: "Simple Pricing",
     description: "Choose the plan that works for you",
-    plans: [
+    pricingItems: [
       {
         id: "free",
         name: "Free",
+        description: "Perfect for getting started",
         price: "$0",
+        yearlyPrice: "$0",
+        isPopular: false,
+        buttonColor: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+        buttonText: "Get started",
         features: ["Basic features", "Community support"],
-        cta: { text: "Get started", href: "#" },
       },
       {
         id: "pro",
         name: "Pro",
+        description: "Best for growing businesses",
         price: "$29",
+        yearlyPrice: "$290",
+        isPopular: true,
+        buttonColor: "bg-blue-600 text-white hover:bg-blue-700",
+        buttonText: "Start trial",
         features: ["All features", "Priority support", "Advanced AI"],
-        cta: { text: "Start trial", href: "#" },
+      },
+      {
+        id: "enterprise",
+        name: "Enterprise",
+        description: "For large organizations",
+        price: "$99",
+        yearlyPrice: "$990",
+        isPopular: false,
+        buttonColor: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+        buttonText: "Contact sales",
+        features: ["Everything in Pro", "Custom integrations", "Dedicated support", "SLA guarantee"],
       },
     ],
   },
@@ -127,9 +152,30 @@ export const siteConfig = {
     title: "Growing Fast",
     description: "Join our rapidly expanding community",
     stats: [
-      { label: "Users", value: "10,000+" },
-      { label: "Websites", value: "50,000+" },
-      { label: "Countries", value: "100+" },
+      { 
+        id: "users",
+        title: "Active Users",
+        description: "Growing every day",
+        content: <div className="text-4xl font-bold text-blue-600">10,000+</div>
+      },
+      { 
+        id: "websites",
+        title: "Websites Created", 
+        description: "Built with our platform",
+        content: <div className="text-4xl font-bold text-green-600">50,000+</div>
+      },
+      { 
+        id: "countries",
+        title: "Countries Served",
+        description: "Worldwide reach", 
+        content: <div className="text-4xl font-bold text-purple-600">100+</div>
+      },
+      { 
+        id: "satisfaction",
+        title: "Customer Satisfaction",
+        description: "Happy customers",
+        content: <div className="text-4xl font-bold text-orange-600">99%</div>
+      },
     ],
   },
 

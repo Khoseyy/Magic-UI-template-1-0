@@ -39,12 +39,8 @@ export function BentoSection() {
                 {item.content === "SecondBentoAnimation" && <SecondBentoAnimation />}
                 {item.content === "ThirdBentoAnimation" && (
                   <ThirdBentoAnimation 
-                    data={[
-                      { name: "Users", value: 1000 },
-                      { name: "Revenue", value: 5000 },
-                      { name: "Growth", value: 25 }
-                    ]}
-                    toolTipValues={["Active users", "Monthly revenue", "Growth rate"]}
+                    data={[1000, 5000, 25, 8000, 12000, 15000, 18000]}
+                    toolTipValues={[1000, 5000, 25]}
                   />
                 )}
                 {item.content === "FourthBentoAnimation" && <FourthBentoAnimation />}
