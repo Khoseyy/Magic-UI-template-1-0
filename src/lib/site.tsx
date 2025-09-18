@@ -156,25 +156,29 @@ export const siteConfig = {
         id: "users",
         title: "Active Users",
         description: "Growing every day",
-        content: <div className="text-4xl font-bold text-blue-600">10,000+</div>
+        content: "10,000+",
+        colorClass: "text-blue-600"
       },
       { 
         id: "websites",
         title: "Websites Created", 
         description: "Built with our platform",
-        content: <div className="text-4xl font-bold text-green-600">50,000+</div>
+        content: "50,000+",
+        colorClass: "text-green-600"
       },
       { 
         id: "countries",
         title: "Countries Served",
         description: "Worldwide reach", 
-        content: <div className="text-4xl font-bold text-purple-600">100+</div>
+        content: "100+",
+        colorClass: "text-purple-600"
       },
       { 
         id: "satisfaction",
         title: "Customer Satisfaction",
         description: "Happy customers",
-        content: <div className="text-4xl font-bold text-orange-600">99%</div>
+        content: "99%",
+        colorClass: "text-orange-600"
       },
     ],
   },

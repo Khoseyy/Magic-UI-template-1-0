@@ -2,6 +2,7 @@
 
 import { SectionHeader } from "@/components/section-header";
 import { siteConfig } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export function GrowthSection() {
   const { title, description, stats } = siteConfig.growthSection;
@@ -33,7 +34,9 @@ export function GrowthSection() {
               key={item.id}
               className="flex flex-col items-start justify-end gap-2 p-6 min-h-[500px]"
             >
-              {item.content}
+              <div className={cn("text-4xl font-bold", item.colorClass)}>
+                {item.content}
+              </div>
               <h3 className="text-lg tracking-tighter font-semibold">
                 {item.title}
               </h3>
