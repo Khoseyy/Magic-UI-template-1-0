@@ -2,7 +2,7 @@
 "use client";
 
 import { Play, XIcon } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "@/lib/motion-shim";
 import { useState } from "react";
 
 import { cn } from "@/lib/utils";

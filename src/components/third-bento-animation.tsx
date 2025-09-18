@@ -2,7 +2,7 @@
 
 import { colorWithOpacity, getRGBA } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
-import { motion, useInView } from "motion/react";
+import { motion, useInView } from "@/lib/motion-shim";
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 
 interface LineChartProps {

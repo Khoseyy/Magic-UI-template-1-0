@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import * as Accordion from "@radix-ui/react-accordion";
-import { motion, useInView } from "motion/react";
+import { motion, useInView } from "@/lib/motion-shim";
 
 import { cn } from "@/lib/utils";
 
