@@ -3,7 +3,7 @@ import { Feature as FeatureComponent } from "@/components/ui/feature-slideshow";
 import { siteConfig } from "@/lib/site";
 
 export function FeatureSection() {
-  const { title, description, items } = siteConfig.featureSection;
+  const { title, description, features } = siteConfig.featureSection;
 
   return (
     <section
@@ -22,7 +22,7 @@ export function FeatureSection() {
         <FeatureComponent
           collapseDelay={5000}
           linePosition="bottom"
-          featureItems={items}
+          featureItems={features}
           lineColor="bg-secondary"
         />
       </div>
