@@ -8,5 +8,4 @@ export {
   useSpring,
   useScroll,
   cubicBezier,
-  type HTMLMotionProps,
 } from "motion/react";
