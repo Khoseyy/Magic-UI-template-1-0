@@ -1,6 +1,10 @@
 "use client";
 
 import { SectionHeader } from "@/components/section-header";
+import { FirstBentoAnimation } from "@/components/first-bento-animation";
+import { SecondBentoAnimation } from "@/components/second-bento-animation";
+import { ThirdBentoAnimation } from "@/components/third-bento-animation";
+import { FourthBentoAnimation } from "@/components/fourth-bento-animation";
 import { siteConfig } from "@/lib/site";
 
 export function BentoSection() {
@@ -31,7 +35,19 @@ export function BentoSection() {
               className="flex flex-col items-start justify-end min-h-[600px] md:min-h-[500px] p-0.5 relative before:absolute before:-left-0.5 before:top-0 before:z-10 before:h-screen before:w-px before:bg-border before:content-[''] after:absolute after:-top-0.5 after:left-0 after:z-10 after:h-px after:w-screen after:bg-border after:content-[''] group cursor-pointer max-h-[400px] group"
             >
               <div className="relative flex size-full items-center justify-center h-full overflow-hidden">
-                {item.content}
+                {item.content === "FirstBentoAnimation" && <FirstBentoAnimation />}
+                {item.content === "SecondBentoAnimation" && <SecondBentoAnimation />}
+                {item.content === "ThirdBentoAnimation" && (
+                  <ThirdBentoAnimation 
+                    data={[
+                      { name: "Users", value: 1000 },
+                      { name: "Revenue", value: 5000 },
+                      { name: "Growth", value: 25 }
+                    ]}
+                    toolTipValues={["Active users", "Monthly revenue", "Growth rate"]}
+                  />
+                )}
+                {item.content === "FourthBentoAnimation" && <FourthBentoAnimation />}
               </div>
               <div className="flex-1 flex-col gap-2 p-6">
                 <h3 className="text-lg tracking-tighter font-semibold">
