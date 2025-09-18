@@ -89,7 +89,7 @@ type FeatureProps = {
   ltr?: boolean;
   linePosition?: "left" | "right" | "top" | "bottom";
   lineColor?: string;
-  featureItems: FeatureItem[];
+  featureItems?: FeatureItem[];
 };
 
 export const Feature = ({
@@ -97,7 +97,7 @@ export const Feature = ({
   ltr = false,
   linePosition = "left",
   lineColor = "bg-neutral-500 dark:bg-white",
-  featureItems,
+  featureItems = [],
 }: FeatureProps) => {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
@@ -143,6 +143,8 @@ export const Feature = ({
 
   // interval for changing images
   useEffect(() => {
+    if (!featureItems || featureItems.length === 0) return;
+    
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex !== undefined ? (prevIndex + 1) % featureItems.length : 0
@@ -150,9 +152,11 @@ export const Feature = ({
     }, collapseDelay);
 
     return () => clearInterval(timer);
-  }, [collapseDelay, currentIndex, featureItems.length]);
+  }, [collapseDelay, currentIndex, featureItems]);
 
   useEffect(() => {
+    if (!featureItems || featureItems.length === 0) return;
+    
     const handleAutoScroll = () => {
       const nextIndex =
         (currentIndex !== undefined ? currentIndex + 1 : 0) %
@@ -163,7 +167,7 @@ export const Feature = ({
     const autoScrollTimer = setInterval(handleAutoScroll, collapseDelay);
 
     return () => clearInterval(autoScrollTimer);
-  }, [collapseDelay, currentIndex, featureItems.length]);
+  }, [collapseDelay, currentIndex, featureItems]);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -181,7 +185,7 @@ export const Feature = ({
       carousel.addEventListener("scroll", handleScroll);
       return () => carousel.removeEventListener("scroll", handleScroll);
     }
-  }, [featureItems.length]);
+  }, [featureItems]);
 
   // Handle image transition
   useEffect(() => {

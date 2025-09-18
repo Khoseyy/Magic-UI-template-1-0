@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/section-header";
 import { siteConfig } from "@/lib/site";
 
 export function GrowthSection() {
-  const { title, description, items } = siteConfig.growthSection;
+  const { title, description, stats } = siteConfig.growthSection;
 
   return (
     <section
@@ -28,7 +28,7 @@ export function GrowthSection() {
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x md:divide-y-0">
-          {items.map((item) => (
+          {stats.map((item) => (
             <div
               key={item.id}
               className="flex flex-col items-start justify-end gap-2 p-6 min-h-[500px]"

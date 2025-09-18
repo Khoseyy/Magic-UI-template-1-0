@@ -30,7 +30,7 @@ export function FAQSection() {
           collapsible
           className="w-full border-b-0 grid gap-2"
         >
-          {faqSection.faQitems.map((faq, index) => (
+          {faqSection.faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={index.toString()}
