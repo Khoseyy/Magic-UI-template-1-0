@@ -15,7 +15,7 @@ export function TestimonialSection() {
           Field-Tested. Client-Approved
         </h2>
         <p className="text-muted-foreground text-center text-balance font-medium">
-          Clients came with problems. Hosey Marketing Solution's built systems that fixed them.
+          Clients came with problems. Hosey Marketing Solutions built systems that fixed them.
         </p>
       </SectionHeader>
       <SocialProofTestimonials testimonials={testimonials} />
