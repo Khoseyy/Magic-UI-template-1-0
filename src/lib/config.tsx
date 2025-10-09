@@ -243,6 +243,44 @@ export const siteConfig = {
       image: "/Device-1.png",
     },
   ],
+  pricing: {
+    pricingItems: [
+      {
+        title: "Starter",
+        price: 29,
+        yearlyPrice: 290,
+        description: "Perfect for solo founders getting their first funnel online.",
+        features: [
+          "Done-for-you landing page",
+          "Core email sequence",
+          "Weekly performance report",
+        ],
+      },
+      {
+        title: "Growth",
+        price: 59,
+        yearlyPrice: 590,
+        description: "Built for growing teams that need consistent pipeline growth.",
+        features: [
+          "Everything in Starter",
+          "Multi-channel campaign buildout",
+          "Conversion copy refresh each quarter",
+        ],
+      },
+      {
+        title: "Scale",
+        price: 129,
+        yearlyPrice: 1290,
+        description: "Our white-glove service for brands ready to dominate their niche.",
+        features: [
+          "Everything in Growth",
+          "Dedicated strategist & copy team",
+          "Unlimited split-tests",
+          "Priority support",
+        ],
+      },
+    ],
+  },
   growthSection: {
     title: "Scalability Meets Reliability",
     description:
