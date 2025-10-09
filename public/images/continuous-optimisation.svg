@@ -1,0 +1,82 @@
+<svg width="1152" height="768" viewBox="0 0 1152 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="576" y1="0" x2="576" y2="768" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#020C1D" />
+      <stop offset="0.5" stop-color="#010712" />
+      <stop offset="1" stop-color="#00040A" />
+    </linearGradient>
+    <radialGradient id="floorGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 160 -420 0 576 548)">
+      <stop offset="0" stop-color="#3BC7FF" stop-opacity="0.38" />
+      <stop offset="1" stop-color="#00040A" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="loopGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 210 -280 0 576 360)">
+      <stop offset="0" stop-color="#7FE7FF" stop-opacity="0.55" />
+      <stop offset="0.65" stop-color="#34C0FC" stop-opacity="0.3" />
+      <stop offset="1" stop-color="#0D3C63" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="loopStroke" x1="340" y1="386" x2="812" y2="386" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5DDCFF" />
+      <stop offset="0.5" stop-color="#7DEAFF" />
+      <stop offset="1" stop-color="#46C9FF" />
+    </linearGradient>
+  </defs>
+  <rect width="1152" height="768" fill="url(#bg)" />
+  <ellipse cx="576" cy="556" rx="420" ry="160" fill="url(#floorGlow)" />
+  <g filter="url(#glowBlur)">
+    <path
+      d="M417 384C417 329.772 461.772 285 516 285C556.29 285 592.154 307.002 624.667 340.183C657.129 373.316 687.935 383.333 711.667 383.333C779.91 383.333 820 332.403 820 285C820 237.597 779.91 186.667 711.667 186.667C646.156 186.667 595.934 224.934 566 268"
+      stroke="url(#loopStroke)"
+      stroke-width="42"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M417 384C417 438.228 461.772 483 516 483C556.29 483 592.154 460.998 624.667 427.817C657.129 394.684 687.935 384.667 711.667 384.667C779.91 384.667 820 435.597 820 483C820 530.403 779.91 581.333 711.667 581.333C646.156 581.333 595.934 543.066 566 499.999"
+      stroke="url(#loopStroke)"
+      stroke-width="42"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M417 384C417 329.772 372.228 285 318 285C263.772 285 219 329.772 219 384C219 438.228 263.772 483 318 483C378.281 483 431.926 443.612 466.474 398.387"
+      stroke="url(#loopStroke)"
+      stroke-width="42"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+  <path
+    d="M610.333 325.667C641.116 349.575 682.019 366.333 711.667 366.333"
+    stroke="url(#loopStroke)"
+    stroke-width="40"
+    stroke-linecap="round"
+  />
+  <path
+    d="M711.667 366.333L753.333 329.333"
+    stroke="url(#loopStroke)"
+    stroke-width="34"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M752 330L792 344L755 384"
+    fill="#61DFFF"
+  />
+  <path
+    d="M752 330L792 344L755 384"
+    fill="#61DFFF"
+    opacity="0.9"
+  />
+  <path
+    d="M752 330L792 344L755 384"
+    fill="#61DFFF"
+    opacity="0.6"
+  />
+  <circle cx="576" cy="360" r="230" fill="url(#loopGlow)" />
+  <defs>
+    <filter id="glowBlur" x="119" y="144" width="822" height="534" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+      <feBlend in="SourceGraphic" in2="blur" mode="screen" />
+    </filter>
+  </defs>
+</svg>

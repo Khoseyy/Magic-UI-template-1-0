@@ -1,0 +1,74 @@
+<svg width="1152" height="768" viewBox="0 0 1152 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="576" y1="0" x2="576" y2="768" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#020C1D" />
+      <stop offset="0.55" stop-color="#010815" />
+      <stop offset="1" stop-color="#00040C" />
+    </linearGradient>
+    <radialGradient id="networkGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 300 -520 0 576 360)">
+      <stop offset="0" stop-color="#0C2845" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#00040C" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="linkGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 220 -320 0 648 360)">
+      <stop offset="0" stop-color="#64E1FF" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#010813" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="nodeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 26 -26 0 0 0)">
+      <stop offset="0" stop-color="#D8FAFF" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#53C5F3" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1152" height="768" fill="url(#bg)" />
+  <rect width="1152" height="768" fill="url(#networkGlow)" />
+  <g opacity="0.3" stroke="#10273F" stroke-width="1.4">
+    <path d="M240 206L340 146L420 220L524 148L620 226L720 152L820 230" />
+    <path d="M180 320L276 248L372 320L460 248L552 320L644 252L732 328L828 260L916 336" />
+    <path d="M212 422L308 348L396 424L484 356L576 428L672 360L760 438L852 366L940 442" />
+    <path d="M284 512L364 442L456 510L544 442L636 520L724 454L812 530" />
+    <path d="M168 246L256 320L344 264L444 340L536 272L632 348L716 280L816 356" />
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M416 358L536 352L640 360L708 332L768 356" stroke="#173D60" stroke-width="3" opacity="0.55" />
+    <path d="M512 380L596 372L680 394L744 376" stroke="#16324E" stroke-width="2.6" opacity="0.45" />
+    <path d="M596 346L672 338L752 360" stroke="#1A4468" stroke-width="3.4" opacity="0.65" />
+    <path d="M640 364L736 368L824 404" stroke="url(#linkGlow)" stroke-width="6" />
+  </g>
+  <g>
+    <g transform="translate(640 364)">
+      <circle r="20" fill="#63DCFF" opacity="0.55" />
+      <circle r="12" fill="#B5F3FF" opacity="0.65" />
+      <circle r="6" fill="#F4FDFF" />
+      <circle r="50" fill="url(#nodeGlow)" opacity="0.8" />
+    </g>
+    <g transform="translate(736 368)">
+      <circle r="16" fill="#45C9F9" opacity="0.45" />
+      <circle r="10" fill="#9FEAFF" opacity="0.6" />
+      <circle r="5.5" fill="#F0FCFF" />
+      <circle r="38" fill="url(#nodeGlow)" opacity="0.7" />
+    </g>
+    <g transform="translate(824 404)">
+      <circle r="14" fill="#3EC0F0" opacity="0.38" />
+      <circle r="9" fill="#9FEAFF" opacity="0.58" />
+      <circle r="5" fill="#F0FCFF" />
+      <circle r="34" fill="url(#nodeGlow)" opacity="0.6" />
+    </g>
+  </g>
+  <g opacity="0.4" stroke="#132840" stroke-width="1.1">
+    <circle cx="276" cy="248" r="6" />
+    <circle cx="372" cy="320" r="6" />
+    <circle cx="460" cy="248" r="6" />
+    <circle cx="552" cy="320" r="6" />
+    <circle cx="644" cy="252" r="6" />
+    <circle cx="732" cy="328" r="6" />
+    <circle cx="828" cy="260" r="6" />
+    <circle cx="916" cy="336" r="6" />
+    <circle cx="308" cy="348" r="6" />
+    <circle cx="396" cy="424" r="6" />
+    <circle cx="484" cy="356" r="6" />
+    <circle cx="576" cy="428" r="6" />
+    <circle cx="672" cy="360" r="6" />
+    <circle cx="760" cy="438" r="6" />
+    <circle cx="852" cy="366" r="6" />
+    <circle cx="940" cy="442" r="6" />
+  </g>
+</svg>

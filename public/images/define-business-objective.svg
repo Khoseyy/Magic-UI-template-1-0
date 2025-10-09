@@ -1,0 +1,42 @@
+<svg width="1152" height="768" viewBox="0 0 1152 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="576" y1="0" x2="576" y2="768" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#031025" />
+      <stop offset="0.55" stop-color="#020A18" />
+      <stop offset="1" stop-color="#010510" />
+    </linearGradient>
+    <radialGradient id="horizon" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 256 -512 0 576 480)">
+      <stop offset="0" stop-color="#142A45" stop-opacity="0.6" />
+      <stop offset="1" stop-color="#010510" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="groundGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 120 -420 0 576 540)">
+      <stop offset="0" stop-color="#4DDCFF" stop-opacity="0.3" />
+      <stop offset="1" stop-color="#010510" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="ringGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 156 -156 0 576 360)">
+      <stop offset="0" stop-color="#B9F1FF" stop-opacity="0.85" />
+      <stop offset="0.6" stop-color="#6CD8FF" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#0C3F66" stop-opacity="0" />
+    </radialGradient>
+    <filter id="ringShadow" x="332" y="92" width="488" height="536" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="blur" />
+      <feBlend in="SourceGraphic" in2="blur" mode="screen" />
+    </filter>
+  </defs>
+  <rect width="1152" height="768" fill="url(#bg)" />
+  <rect width="1152" height="768" fill="url(#horizon)" />
+  <ellipse cx="576" cy="552" rx="420" ry="120" fill="url(#groundGlow)" />
+  <g filter="url(#ringShadow)">
+    <circle cx="576" cy="360" r="170" stroke="#B9F1FF" stroke-opacity="0.65" stroke-width="18" />
+    <circle cx="576" cy="360" r="86" stroke="#C6F5FF" stroke-opacity="0.75" stroke-width="16" />
+    <circle cx="576" cy="360" r="20" fill="#F2FDFF" />
+    <line x1="576" y1="180" x2="576" y2="264" stroke="#C5F4FF" stroke-width="16" stroke-linecap="round" />
+    <line x1="576" y1="456" x2="576" y2="540" stroke="#C5F4FF" stroke-width="16" stroke-linecap="round" />
+    <line x1="396" y1="360" x2="480" y2="360" stroke="#C5F4FF" stroke-width="16" stroke-linecap="round" />
+    <line x1="672" y1="360" x2="756" y2="360" stroke="#C5F4FF" stroke-width="16" stroke-linecap="round" />
+    <line x1="576" y1="322" x2="576" y2="398" stroke="#F2FDFF" stroke-width="10" stroke-linecap="round" />
+    <line x1="538" y1="360" x2="614" y2="360" stroke="#F2FDFF" stroke-width="10" stroke-linecap="round" />
+  </g>
+  <circle cx="576" cy="360" r="206" fill="url(#ringGlow)" />
+</svg>
