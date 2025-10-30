@@ -64,7 +64,7 @@ export function SocialProofTestimonials({
     columns[index % columnCount].push(testimonial);
   });
 
-  const loopingColumns = columns.map((column, columnIndex) => {
+  const loopingColumns = columns.map((column) => {
     if (column.length >= 2) {
       return column;
     }
