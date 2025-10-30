@@ -81,6 +81,7 @@ type FeatureItem = {
   id: number;
   title: string;
   content: string;
+  embed?: ReactNode;
   image?: string;
   video?: string;
 };
@@ -198,6 +199,14 @@ export const Feature = ({
     if (!currentItem) {
       return (
         <div className="aspect-auto h-full w-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1 animate-pulse" />
+      );
+    }
+
+    if (currentItem.embed) {
+      return (
+        <div className="relative h-full w-full overflow-hidden">
+          {currentItem.embed}
+        </div>
       );
     }
 

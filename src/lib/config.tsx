@@ -5,7 +5,6 @@ import { ThirdBentoAnimation } from "@/components/third-bento-animation";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { Globe } from "@/components/ui/globe";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { motion } from "motion/react";
 
 export const Highlight = ({
@@ -75,7 +74,7 @@ export const siteConfig = {
       "Building market-dominating systems using strategic planning, buyer psychology, and world-class copywriting.",
     cta: {
       primary: {
-        text: "Book Strategy Call",
+        text: "Book Consultation",
         href: "#booking",
       },
       secondary: {
@@ -88,55 +87,51 @@ export const siteConfig = {
     companyLogos: [
       {
         id: 1,
-        name: "Galactic Gaming Limited",
-        logo: (
-          <Image
-            src="/images/Galactic-Gaming-Limited.png"
-            alt="Galactic Gaming Limited logo"
-            width={461}
-            height={173}
-            className="h-[173px] w-[461px] object-contain"
-          />
-        ),
+        name: "Custom Theme",
+        alt: "Nicole + Rewire project preview",
+        width: 484,
+        height: 180,
+        lightSrc: "/logos/light/coles-miller-darkmode.png",
+        darkSrc: "/images/images-1.png",
+        className: "w-auto object-contain",
+        darkClassName: "h-28",
+        lightClassName: "h-28 origin-center transform scale-[0.7]",
       },
       {
         id: 2,
         name: "LSBU",
-        logo: (
-          <Image
-            src="/images/lsbu.png"
-            alt="LSBU logo"
-            width={160}
-            height={60}
-            className="h-12 w-auto object-contain"
-          />
-        ),
+        alt: "LSBU logo",
+        width: 160,
+        height: 60,
+        lightSrc: "/logos/light/lsbu-darkmode.png",
+        darkSrc: "/images/LSBU-WHITE.webp",
+        className: "w-auto object-contain",
+        darkClassName: "h-12",
+        lightClassName: "h-12 origin-center transform scale-[1.15]",
       },
       {
         id: 3,
-        name: "Custom Theme",
-        logo: (
-          <Image
-            src="/images/488054_custom_site_themes_id_2bTrxLGKRzGOD6jIuxZA_Screenshot 2025-03-20 at 11.20.41.png"
-            alt="Custom theme screenshot"
-            width={176}
-            height={66}
-            className="h-[66px] w-auto object-contain"
-          />
-        ),
+        name: "Nicole + Rewire",
+        alt: "Nicole and Rewire logo",
+        width: 1020,
+        height: 228,
+        lightSrc: "/logos/light/nicoledarkmode.png",
+        darkSrc: "/images/rewire-nicole.webp",
+        className: "w-auto object-contain",
+        darkClassName: "h-14",
+        lightClassName: "h-14 origin-center transform scale-[0.88]",
       },
       {
         id: 4,
         name: "White Text",
-        logo: (
-          <Image
-            src="/images/white text - transparent (1).webp"
-            alt="White text transparent logo"
-            width={161}
-            height={60}
-            className="h-[60px] w-[161px] object-contain"
-          />
-        ),
+        alt: "White text transparent logo",
+        width: 161,
+        height: 60,
+        lightSrc: "/images/Davidglightmode-removebg-preview.png",
+        darkSrc: "/images/white text - transparent (1).webp",
+        className: "w-auto object-contain",
+        darkClassName: "h-[60px] w-[161px]",
+        lightClassName: "h-[60px] w-[161px] origin-center transform scale-[1.52]",
       },
     ],
   },
@@ -150,32 +145,28 @@ export const siteConfig = {
         title: "Define Business Objective",
         content:
           "We start with the end in mind: the exact revenue target or outcome this project must deliver.",
-        image:
-          "https://images.unsplash.com/photo-1720371300677-ba4838fa0678?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "/images/company-timeline.png",
       },
       {
         id: 2,
         title: "Select Marketing System",
         content:
           "We identify the part of your online presence that is needed to hit the objective.",
-        image:
-          "https://images.unsplash.com/photo-1686170287433-c95faf6d3608?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8fA%3D%3D",
+        image: "/images/1600w-jsTIFLukvNU.webp",
       },
       {
         id: 3,
         title: "Engineer Deliverables",
         content:
           "We design every pixel on the customers screen to give them what they need to see, feel, hear and believe to purchase.",
-        image:
-          "https://images.unsplash.com/photo-1720378042271-60aff1e1c538?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D",
+        image: "/images/Screenshot 2025-10-10 at 12.46.50.png",
       },
       {
         id: 4,
         title: "Continuous Optimisation",
         content:
           "We launch, then fine-tune tirelessly until the business objective is hit.",
-        image:
-          "https://images.unsplash.com/photo-1666882990322-e7f3b8df4f75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
+        image: "/images/frame.png",
       },
     ],
   },
@@ -281,7 +272,7 @@ export const siteConfig = {
         price: 129,
         yearlyPrice: 1290,
         description: "Our white-glove service for brands ready to own their category.",
-        buttonText: "Book Strategy Call",
+        buttonText: "Book Consultation",
         buttonColor: "bg-muted text-primary border border-border",
         features: [
           "Everything in Pro",
@@ -603,14 +594,12 @@ export const siteConfig = {
     },
   },
   bookingSection: {
-    title: "Secure Your Strategy Call",
+    title: "Secure Your Complimentary Consultation",
     description:
-      "Pick a timeslot that works for you. We’ll audit your current growth engine and map the next moves during this session.",
-    subtitle: "Live availability is updated in real-time.",
+      "We’ll audit your current marketing systems and build a clear, step-by-step roadmap to get you from where you are now to where you want to be.",
     benefits: [
-      "Clarity on the metrics and milestones that matter right now.",
-      "A bespoke system outline tailored to your goals and resources.",
-      "Action steps to deploy within the next 30 days.",
+      "A bespoke marketing system tailored to your goals and resources.",
+      "Action steps to deploy this plan within the next 14 days.",
     ],
     calendarCard: {
       name: "Calendar",
@@ -620,7 +609,7 @@ export const siteConfig = {
     availability: {
       timezoneLabel: "All sessions are hosted from London, UK.",
       baseTimeZone: "Europe/London",
-      durationLabel: "45-minute deep dive",
+      durationLabel: "30-minutes",
       warmupCopy: "Select a date to reveal available times.",
       timeSlots: ["09:00", "11:30", "14:00", "16:30"],
     },
@@ -634,202 +623,93 @@ export const siteConfig = {
   testimonials: [
     {
       id: "1",
-      name: "Alex Rivera",
-      role: "CTO at InnovateTech",
-      img: "https://randomuser.me/api/portraits/men/91.jpg",
+      name: "Daniel Żochowski",
+      role: "Founder, Shopla Gaming",
+      img: "/images/daniel-zochowski.jpg",
       description: (
-        <p>
-          The AI-driven analytics from #QuantumInsights have revolutionized our
-          product development cycle.
-          <Highlight>
-            Insights are now more accurate and faster than ever.
-          </Highlight>{" "}
-          A game-changer for tech companies.
-        </p>
+        <div className="space-y-2">
+          <p>
+            Professional and hard working. There was no problem that couldn&apos;t be solved and, with my low budget, Hosey Solutions made every penny count in our Google Ads campaign, turning it into a massive success.
+          </p>
+        </div>
       ),
     },
     {
       id: "2",
-      name: "Samantha Lee",
-      role: "Marketing Director at NextGen Solutions",
-      img: "https://randomuser.me/api/portraits/women/12.jpg",
+      name: "David Grey Rehab",
+      role: "World Renowned Therapist",
+      img: "/images/davidgrey.png",
       description: (
-        <p>
-          Implementing #AIStream&apos;s customer prediction model has
-          drastically improved our targeting strategy.
-          <Highlight>Seeing a 50% increase in conversion rates!</Highlight>{" "}
-          Highly recommend their solutions.
-        </p>
+        <div className="space-y-2">
+          <p>
+            Hosey Solutions has been extremely helpful for our business. <Highlight>They brought clarity and a degree of elegance</Highlight> to our messaging that was definitely missing.
+          </p>
+          <p>
+            It&apos;s difficult to know who to trust in the copywriting world, but Hosey Solutions put me at ease right away and was <Highlight>transparent and thorough from the very beginning.</Highlight> I wouldn&apos;t hesitate to contact them if you need help with anything related to your sales funnel.
+          </p>
+        </div>
       ),
     },
     {
       id: "3",
-      name: "Raj Patel",
-      role: "Founder & CEO at StartUp Grid",
-      img: "https://randomuser.me/api/portraits/men/45.jpg",
+      name: "David Bregu",
+      role: "Lead Sales, Sidequest Fitness",
+      img: "/images/david-bregu.png",
       description: (
-        <p>
-          As a startup, we need to move fast and stay ahead. #CodeAI&apos;s
-          automated coding assistant helps us do just that.
-          <Highlight>Our development speed has doubled.</Highlight> Essential
-          tool for any startup.
-        </p>
+        <div className="space-y-2">
+          <p>
+            <Highlight>Hosey Solutions is the best partner I&apos;ve worked with.</Highlight> They brought in leads that matched every requirement, many of whom are now clients.
+          </p>
+          <p>
+            Without their exceptional insight and advice I wouldn&apos;t have reached or helped as many people as I have today. <Highlight>Their diligence, attention to detail, and fast feedback</Highlight> make them stand out.
+          </p>
+          <p>If you&apos;re looking for help with your sales funnel, reach out to them.</p>
+        </div>
       ),
     },
     {
       id: "4",
-      name: "Emily Chen",
-      role: "Product Manager at Digital Wave",
-      img: "https://randomuser.me/api/portraits/women/83.jpg",
+      name: "Nick Balchin",
+      role: "Marketing Director, Coles Miller Solicitors LLP",
+      img: "/images/nick-balchin.png",
       description: (
-        <p>
-          #VoiceGen&apos;s AI-driven voice synthesis has made creating global
-          products a breeze.
-          <Highlight>Localization is now seamless and efficient.</Highlight> A
-          must-have for global product teams.
-        </p>
+        <div className="space-y-2">
+          <p>
+            <Highlight>Hosey Solutions gave our PPC campaigns a new direction</Highlight>, built high-converting landing pages, and kept optimising performance.
+          </p>
+          <p>
+            <Highlight>Hosey Solutions is sharp, reliable, and delivers results.</Highlight>
+          </p>
+        </div>
       ),
     },
     {
       id: "5",
-      name: "Michael Brown",
-      role: "Data Scientist at FinTech Innovations",
-      img: "https://randomuser.me/api/portraits/men/1.jpg",
+      name: "Elliot Hoye",
+      role: "Startup Founder",
+      img: "/images/elliot-hoye.png",
       description: (
-        <p>
-          Leveraging #DataCrunch&apos;s AI for our financial models has given us
-          an edge in predictive accuracy.
-          <Highlight>
-            Our investment strategies are now powered by real-time data
-            analytics.
-          </Highlight>{" "}
-          Transformative for the finance industry.
-        </p>
+        <div className="space-y-2">
+          <p>
+            The highest standard of copywriting and strategic marketing I have personally seen. <Highlight>You can expect high-calibre work delivered on time without fail.</Highlight>
+          </p>
+        </div>
       ),
     },
     {
       id: "6",
-      name: "Linda Wu",
-      role: "VP of Operations at LogiChain Solutions",
-      img: "https://randomuser.me/api/portraits/women/5.jpg",
+      name: "Nicole Vignola",
+      role: "Author & Speaker",
+      img: "/images/Nicole.jpg",
       description: (
-        <p>
-          #LogiTech&apos;s supply chain optimization tools have drastically
-          reduced our operational costs.
-          <Highlight>
-            Efficiency and accuracy in logistics have never been better.
-          </Highlight>{" "}
-        </p>
-      ),
-    },
-    {
-      id: "7",
-      name: "Carlos Gomez",
-      role: "Head of R&D at EcoInnovate",
-      img: "https://randomuser.me/api/portraits/men/14.jpg",
-      description: (
-        <p>
-          By integrating #GreenTech&apos;s sustainable energy solutions,
-          we&apos;ve seen a significant reduction in carbon footprint.
-          <Highlight>
-            Leading the way in eco-friendly business practices.
-          </Highlight>{" "}
-          Pioneering change in the industry.
-        </p>
-      ),
-    },
-    {
-      id: "8",
-      name: "Aisha Khan",
-      role: "Chief Marketing Officer at Fashion Forward",
-      img: "https://randomuser.me/api/portraits/women/56.jpg",
-      description: (
-        <p>
-          #TrendSetter&apos;s market analysis AI has transformed how we approach
-          fashion trends.
-          <Highlight>
-            Our campaigns are now data-driven with higher customer engagement.
-          </Highlight>{" "}
-          Revolutionizing fashion marketing.
-        </p>
-      ),
-    },
-    {
-      id: "9",
-      name: "Tom Chen",
-      role: "Director of IT at HealthTech Solutions",
-      img: "https://randomuser.me/api/portraits/men/18.jpg",
-      description: (
-        <p>
-          Implementing #MediCareAI in our patient care systems has improved
-          patient outcomes significantly.
-          <Highlight>
-            Technology and healthcare working hand in hand for better health.
-          </Highlight>{" "}
-          A milestone in medical technology.
-        </p>
-      ),
-    },
-    {
-      id: "10",
-      name: "Sofia Patel",
-      role: "CEO at EduTech Innovations",
-      img: "https://randomuser.me/api/portraits/women/73.jpg",
-      description: (
-        <p>
-          #LearnSmart&apos;s AI-driven personalized learning plans have doubled
-          student performance metrics.
-          <Highlight>
-            Education tailored to every learner&apos;s needs.
-          </Highlight>{" "}
-          Transforming the educational landscape.
-        </p>
-      ),
-    },
-    {
-      id: "11",
-      name: "Jake Morrison",
-      role: "CTO at SecureNet Tech",
-      img: "https://randomuser.me/api/portraits/men/25.jpg",
-      description: (
-        <p>
-          With #CyberShield&apos;s AI-powered security systems, our data
-          protection levels are unmatched.
-          <Highlight>
-            Ensuring safety and trust in digital spaces.
-          </Highlight>{" "}
-          Redefining cybersecurity standards.
-        </p>
-      ),
-    },
-    {
-      id: "12",
-      name: "Nadia Ali",
-      role: "Product Manager at Creative Solutions",
-      img: "https://randomuser.me/api/portraits/women/78.jpg",
-      description: (
-        <p>
-          #DesignPro&apos;s AI has streamlined our creative process, enhancing
-          productivity and innovation.
-          <Highlight>Bringing creativity and technology together.</Highlight> A
-          game-changer for creative industries.
-        </p>
-      ),
-    },
-    {
-      id: "13",
-      name: "Omar Farooq",
-      role: "Founder at Startup Hub",
-      img: "https://randomuser.me/api/portraits/men/54.jpg",
-      description: (
-        <p>
-          #VentureAI&apos;s insights into startup ecosystems have been
-          invaluable for our growth and funding strategies.
-          <Highlight>
-            Empowering startups with data-driven decisions.
-          </Highlight>{" "}
-          A catalyst for startup success.
-        </p>
+        <div className="space-y-2">
+          <p>
+            Working with Kristof was an <Highlight>absolute dream.</Highlight> He was <Highlight>incredibly attentive, detail-oriented, and intuitive</Highlight>. He didn&apos;t just follow instructions, he truly understood what I wanted, often before I even said it. He took the time to research my brand and goals, and built a website and funnel that perfectly captured my vision.
+          </p>
+          <p>
+            What stood out most was his ability to <Highlight>pick up on the nuances</Highlight>&mdash;he listened carefully, read between the lines, and delivered something that felt deeply aligned with my style and message. I couldn&apos;t recommend him more highly and am finding creative ways to bring him onboard on a retainer as he&apos;s become <Highlight>invaluable to my vision.</Highlight>
+          </p>
+        </div>
       ),
     },
   ],
@@ -852,9 +732,9 @@ export const siteConfig = {
       },
       {
         id: 3,
-        question: "What happens on the strategy call?",
+        question: "What happens on the consultation call?",
         answer:
-          "During the strategy call, we will discuss your business goals, challenges, and current marketing efforts. Our team will analyse your situation and provide tailored recommendations to help you achieve your objectives.",
+          "During the consultation call, we will discuss your business goals, challenges, and current marketing efforts. Our team will analyse your situation and provide tailored recommendations to help you achieve your objectives.",
       },
       {
         id: 4,
@@ -868,7 +748,6 @@ export const siteConfig = {
         answer:
           "Yes. We can write your copy, build your pages, and handle all the technical parts for you.",
       },
-      ,
     ],
   },
   ctaSection: {
@@ -877,7 +756,7 @@ export const siteConfig = {
     backgroundImage: "/agent-cta-background.png",
     button: {
       text: "Book Your Diagnostic Today",
-      href: "#",
+      href: "#booking",
     },
     subtext: "20 minute no-obligation call",
   },

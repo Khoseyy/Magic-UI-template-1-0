@@ -1,5 +1,7 @@
 import { siteConfig } from "@/lib/config";
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function CompanyShowcase() {
@@ -21,11 +23,35 @@ export function CompanyShowcase() {
             key={logo.id}
           >
             <div className="transition-all duration-200 [cubic-bezier(0.165, 0.84, 0.44, 1)] translate-y-0 group-hover:-translate-y-4 duration-300 flex items-center justify-center w-full h-full">
-              {logo.logo}
+              <Image
+                src={logo.darkSrc}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className={cn(
+                  logo.className,
+                  logo.darkClassName,
+                  "hidden dark:block",
+                )}
+                style={logo.darkStyle}
+              />
+              <Image
+                src={logo.lightSrc ?? logo.darkSrc}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className={cn(
+                  logo.className,
+                  logo.lightClassName,
+                  "block dark:hidden",
+                )}
+                style={logo.lightStyle}
+              />
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-4 transition-all duration-300 ease-[cubic-bezier(0.165, 0.84, 0.44, 1)]">
               <span className="flex items-center gap-2 text-sm font-medium">
-                Learn More <ArrowRight className="w-4 h-4" />
+                {logo.name === "LSBU" ? "Trained With" : "Collaborated With"}{" "}
+                <ArrowRight className="w-4 h-4" />
               </span>
             </div>
           </Link>

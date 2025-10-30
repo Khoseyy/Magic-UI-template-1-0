@@ -20,7 +20,7 @@ export default function Home() {
       <FeatureSection />
       <SchedulingSection />
       <GrowthSection />
-      {false && <TestimonialSection />}
+      <TestimonialSection />
       <FAQSection />
       <CTASection />
       <FooterSection />

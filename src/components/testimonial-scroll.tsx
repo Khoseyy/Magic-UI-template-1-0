@@ -34,7 +34,7 @@ export const TestimonialCard = ({
     </div>
 
     <div className="flex w-full select-none items-center justify-start gap-3.5">
-      <img src={img} alt={name} className="size-8 rounded-full" />
+      <img src={img} alt={name} className="size-8 rounded-full object-cover" />
 
       <div>
         <p className="font-medium text-primary/90">{name}</p>
@@ -57,28 +57,61 @@ export function SocialProofTestimonials({
 }: {
   testimonials: Testimonial[];
 }) {
+  const columnCount = Math.min(3, Math.max(1, testimonials.length));
+  const columns = Array.from({ length: columnCount }, () => [] as Testimonial[]);
+
+  testimonials.forEach((testimonial, index) => {
+    columns[index % columnCount].push(testimonial);
+  });
+
+  const loopingColumns = columns.map((column, columnIndex) => {
+    if (column.length >= 2) {
+      return column;
+    }
+
+    const existingIds = new Set(column.map((item) => item.id));
+    const fillers = testimonials.filter((item) => !existingIds.has(item.id));
+    const augmented = [...column, ...fillers];
+
+    if (augmented.length >= 2) {
+      return augmented.slice(0, 2);
+    }
+
+    // Fallback: duplicate the only testimonial so marquee still animates
+    return column.length === 1 ? [...column, column[0]] : column;
+  });
+
   return (
     <div className="h-full">
       <div className="px-10">
         <div className="relative max-h-[750px] overflow-hidden">
-          <div className="gap-0 md:columns-2 xl:columns-3">
-            {Array(Math.ceil(testimonials.length / 3))
-              .fill(0)
-              .map((_, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {loopingColumns.map((column, index) => {
+              const marqueeConfigs = [
+                { className: "[--duration:46s]", reverse: false, repeat: 4 },
+                { className: "[--duration:28s]", reverse: false, repeat: 5 },
+                { className: "[--duration:80s]", reverse: false, repeat: 4 },
+              ];
+              const config = marqueeConfigs[index] ?? {
+                className: "[--duration:60s]",
+                reverse: false,
+                repeat: 4,
+              };
+
+              return (
                 <Marquee
                   vertical
-                  key={i}
-                  className={cn({
-                    "[--duration:60s]": i === 1,
-                    "[--duration:30s]": i === 2,
-                    "[--duration:70s]": i === 3,
-                  })}
+                  key={`column-${index}`}
+                  className={cn(config.className)}
+                  reverse={config.reverse}
+                  repeat={config.repeat}
                 >
-                  {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
-                    <TestimonialCard {...card} key={idx} />
+                  {column.map((card) => (
+                    <TestimonialCard {...card} key={card.id} />
                   ))}
                 </Marquee>
-              ))}
+              );
+            })}
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/6 md:h-1/5 w-full bg-gradient-to-t from-background from-20%"></div>
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/6 md:h-1/5 w-full bg-gradient-to-b from-background from-20%"></div>
