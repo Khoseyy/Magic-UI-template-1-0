@@ -33,7 +33,6 @@ export function CompanyShowcase() {
                   logo.darkClassName,
                   "hidden dark:block",
                 )}
-                style={logo.darkStyle}
               />
               <Image
                 src={logo.lightSrc ?? logo.darkSrc}
@@ -45,7 +44,6 @@ export function CompanyShowcase() {
                   logo.lightClassName,
                   "block dark:hidden",
                 )}
-                style={logo.lightStyle}
               />
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-4 transition-all duration-300 ease-[cubic-bezier(0.165, 0.84, 0.44, 1)]">
