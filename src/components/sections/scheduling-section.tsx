@@ -29,9 +29,11 @@ export function SchedulingSection() {
         <p className="text-balance text-center font-medium text-muted-foreground">
           {config.description}
         </p>
-        <p className="text-center text-sm text-muted-foreground/80">
-          {config.subtitle}
-        </p>
+        {config.cta?.secondary && (
+          <p className="text-center text-sm text-muted-foreground/80">
+            {config.cta.secondary}
+          </p>
+        )}
       </SectionHeader>
 
       <div className="w-full max-w-5xl px-6">
