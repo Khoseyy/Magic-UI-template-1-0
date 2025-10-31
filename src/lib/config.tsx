@@ -115,7 +115,7 @@ export const siteConfig = {
         alt: "Nicole and Rewire logo",
         width: 1020,
         height: 228,
-        lightSrc: "/logos/light/nicoledarkmode.png",
+        lightSrc: "/images/nicoledarkmode.png",
         darkSrc: "/images/rewire-nicole.webp",
         className: "w-auto object-contain",
         darkClassName: "h-14",
