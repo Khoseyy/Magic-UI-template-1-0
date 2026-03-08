@@ -88,14 +88,14 @@ export function SocialProofTestimonials({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {loopingColumns.map((column, index) => {
               const marqueeConfigs = [
-                { className: "[--duration:46s]", reverse: false, repeat: 4 },
-                { className: "[--duration:28s]", reverse: false, repeat: 5 },
-                { className: "[--duration:80s]", reverse: false, repeat: 4 },
+                { className: "[--duration:46s]", reverse: false, repeat: 1 },
+                { className: "[--duration:28s]", reverse: false, repeat: 1 },
+                { className: "[--duration:80s]", reverse: false, repeat: 1 },
               ];
               const config = marqueeConfigs[index] ?? {
                 className: "[--duration:60s]",
                 reverse: false,
-                repeat: 4,
+                repeat: 1,
               };
 
               return (
