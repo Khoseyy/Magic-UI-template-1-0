@@ -45,7 +45,7 @@ export function SchedulingSection() {
         >
           <div
             className="calendly-inline-widget w-full"
-            data-url="https://calendly.com/kristof-hoseysolutions/30min"
+            data-url="https://calendly.com/hello-hoseysolutions/30min"
             style={{ minWidth: "320px", height: "720px" }}
           />
         </div>
