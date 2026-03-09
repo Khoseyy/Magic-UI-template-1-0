@@ -21,7 +21,7 @@ export const TestimonialCard = ({
 }: TestimonialCardProps) => (
   <div
     className={cn(
-      "flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4",
+      "flex w-full cursor-pointer break-inside-avoid flex-col items-start justify-between gap-6 rounded-xl p-4 text-left",
       // light styles
       "bg-accent",
       "shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]",
@@ -29,7 +29,7 @@ export const TestimonialCard = ({
     )}
     {...props}
   >
-    <div className="select-none leading-relaxed font-normal text-primary/90">
+    <div className="select-none leading-relaxed font-normal text-primary/90 text-left w-full">
       {description}
     </div>
 
@@ -57,28 +57,43 @@ export function SocialProofTestimonials({
 }: {
   testimonials: Testimonial[];
 }) {
+  const columnCount = Math.min(3, Math.max(1, testimonials.length));
+  const columns = Array.from({ length: columnCount }, () => [] as Testimonial[]);
+
+  testimonials.forEach((testimonial, index) => {
+    columns[index % columnCount].push(testimonial);
+  });
+
+  const loopingColumns = columns.map((column) => {
+    if (column.length >= 2) return column;
+    if (column.length === 1) return [column[0], ...testimonials.filter((t) => t.id !== column[0].id)];
+    return testimonials;
+  });
+
+  const marqueeConfigs = [
+    { className: "[--duration:56s]", reverse: false },
+    { className: "[--duration:44s]", reverse: true },
+    { className: "[--duration:64s]", reverse: false },
+  ];
+
   return (
     <div className="h-full">
       <div className="px-10">
         <div className="relative max-h-[750px] overflow-hidden">
-          <div className="gap-0 md:columns-2 xl:columns-3">
-            {Array(Math.ceil(testimonials.length / 3))
-              .fill(0)
-              .map((_, i) => (
-                <Marquee
-                  vertical
-                  key={i}
-                  className={cn({
-                    "[--duration:60s]": i === 1,
-                    "[--duration:30s]": i === 2,
-                    "[--duration:70s]": i === 3,
-                  })}
-                >
-                  {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
-                    <TestimonialCard {...card} key={idx} />
-                  ))}
-                </Marquee>
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {loopingColumns.map((column, index) => (
+              <Marquee
+                vertical
+                key={`column-${index}`}
+                className={cn(marqueeConfigs[index]?.className ?? "[--duration:52s]")}
+                reverse={marqueeConfigs[index]?.reverse ?? false}
+                repeat={5}
+              >
+                {column.map((card) => (
+                  <TestimonialCard {...card} key={card.id} />
+                ))}
+              </Marquee>
+            ))}
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/6 md:h-1/5 w-full bg-gradient-to-t from-background from-20%"></div>
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/6 md:h-1/5 w-full bg-gradient-to-b from-background from-20%"></div>
