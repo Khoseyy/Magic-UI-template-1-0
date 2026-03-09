@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll } from "motion/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const INITIAL_WIDTH = "70rem";
 const MAX_WIDTH = "800px";
@@ -51,34 +51,42 @@ const drawerMenuVariants = {
 };
 
 export function Navbar() {
+  const sections = useMemo(
+    () => siteConfig.nav.links.map((item) => item.href.substring(1)),
+    [],
+  );
   const { scrollY } = useScroll();
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState(sections[0] ?? "hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = siteConfig.nav.links.map((item) =>
-        item.href.substring(1),
-      );
+    const elements = sections
+      .map((section) => document.getElementById(section))
+      .filter((element): element is HTMLElement => element !== null);
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section);
-            break;
-          }
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target.id) {
+          setActiveSection(visibleEntry.target.id);
         }
-      }
-    };
+      },
+      {
+        rootMargin: "-96px 0px -60% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    elements.forEach((element) => observer.observe(element));
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => observer.disconnect();
+  }, [sections]);
 
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
@@ -89,6 +97,18 @@ export function Navbar() {
 
   const toggleDrawer = () => setIsDrawerOpen((prev) => !prev);
   const handleOverlayClick = () => setIsDrawerOpen(false);
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    setActiveSection(sectionId);
+    const offsetPosition = element.getBoundingClientRect().top + window.scrollY - 100;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <header
@@ -116,7 +136,7 @@ export function Navbar() {
               <p className="text-lg font-semibold text-primary">HoseySolutions</p>
             </Link>
 
-            <NavMenu />
+            <NavMenu activeSection={activeSection} onNavigate={scrollToSection} />
 
             <div className="flex flex-row items-center gap-1 md:gap-3 shrink-0">
               <div className="flex items-center space-x-6">
@@ -196,10 +216,7 @@ export function Navbar() {
                           href={item.href}
                           onClick={(e) => {
                             e.preventDefault();
-                            const element = document.getElementById(
-                              item.href.substring(1),
-                            );
-                            element?.scrollIntoView({ behavior: "smooth" });
+                            scrollToSection(item.href.substring(1));
                             setIsDrawerOpen(false);
                           }}
                           className={`underline-offset-4 hover:text-primary/80 transition-colors ${
@@ -221,9 +238,7 @@ export function Navbar() {
                     href="#booking"
                     onClick={(e) => {
                       e.preventDefault();
-                      document
-                        .getElementById("booking")
-                        ?.scrollIntoView({ behavior: "smooth" });
+                      scrollToSection("booking");
                       setIsDrawerOpen(false);
                     }}
                     className="bg-secondary h-8 flex items-center justify-center text-sm font-normal tracking-wide rounded-full text-primary-foreground dark:text-secondary-foreground w-full px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] border border-white/[0.12] hover:bg-secondary/80 transition-all ease-out active:scale-95"

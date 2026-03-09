@@ -142,29 +142,20 @@ export const Feature = ({
     }
   };
 
-  // interval for changing images
   useEffect(() => {
+    if (!isInView || currentIndex < 0) return;
+
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex !== undefined ? (prevIndex + 1) % featureItems.length : 0
-      );
+      setCurrentIndex((prevIndex) => {
+        const current = prevIndex < 0 ? 0 : prevIndex;
+        const nextIndex = (current + 1) % featureItems.length;
+        scrollToIndex(nextIndex);
+        return nextIndex;
+      });
     }, collapseDelay);
 
     return () => clearInterval(timer);
-  }, [collapseDelay, currentIndex, featureItems.length]);
-
-  useEffect(() => {
-    const handleAutoScroll = () => {
-      const nextIndex =
-        (currentIndex !== undefined ? currentIndex + 1 : 0) %
-        featureItems.length;
-      scrollToIndex(nextIndex);
-    };
-
-    const autoScrollTimer = setInterval(handleAutoScroll, collapseDelay);
-
-    return () => clearInterval(autoScrollTimer);
-  }, [collapseDelay, currentIndex, featureItems.length]);
+  }, [collapseDelay, currentIndex, featureItems.length, isInView]);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -245,7 +236,8 @@ export const Feature = ({
               ease: [0.4, 0, 0.2, 1],
             }}
             onLoad={() => setImageLoaded(true)}
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>

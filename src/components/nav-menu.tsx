@@ -11,66 +11,30 @@ interface NavItem {
 
 const navs: NavItem[] = siteConfig.nav.links;
 
-export function NavMenu() {
+interface NavMenuProps {
+  activeSection: string;
+  onNavigate: (sectionId: string) => void;
+}
+
+export function NavMenu({ activeSection, onNavigate }: NavMenuProps) {
   const ref = useRef<HTMLUListElement>(null);
   const [left, setLeft] = useState(0);
   const [width, setWidth] = useState(0);
   const [isReady, setIsReady] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
-  const [isManualScroll, setIsManualScroll] = useState(false);
 
   React.useEffect(() => {
-    // Initialize with first nav item
-    const firstItem = ref.current?.querySelector(
-      `[href="#${navs[0].href.substring(1)}"]`,
+    const firstSection = activeSection || navs[0]?.href.substring(1);
+    const navItem = ref.current?.querySelector(
+      `[href="#${firstSection}"]`,
     )?.parentElement;
-    if (firstItem) {
-      const rect = firstItem.getBoundingClientRect();
-      setLeft(firstItem.offsetLeft);
+
+    if (navItem) {
+      const rect = navItem.getBoundingClientRect();
+      setLeft(navItem.offsetLeft);
       setWidth(rect.width);
       setIsReady(true);
     }
-  }, []);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      // Skip scroll handling during manual click scrolling
-      if (isManualScroll) return;
-
-      const sections = navs.map((item) => item.href.substring(1));
-
-      // Find the section closest to viewport top
-      let closestSection = sections[0];
-      let minDistance = Infinity;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const distance = Math.abs(rect.top - 100); // Offset by 100px to trigger earlier
-          if (distance < minDistance) {
-            minDistance = distance;
-            closestSection = section;
-          }
-        }
-      }
-
-      // Update active section and nav indicator
-      setActiveSection(closestSection);
-      const navItem = ref.current?.querySelector(
-        `[href="#${closestSection}"]`,
-      )?.parentElement;
-      if (navItem) {
-        const rect = navItem.getBoundingClientRect();
-        setLeft(navItem.offsetLeft);
-        setWidth(rect.width);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isManualScroll]);
+  }, [activeSection]);
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -82,32 +46,13 @@ export function NavMenu() {
     const element = document.getElementById(targetId);
 
     if (element) {
-      // Set manual scroll flag
-      setIsManualScroll(true);
-
-      // Immediately update nav state
-      setActiveSection(targetId);
       const navItem = e.currentTarget.parentElement;
       if (navItem) {
         const rect = navItem.getBoundingClientRect();
         setLeft(navItem.offsetLeft);
         setWidth(rect.width);
       }
-
-      // Calculate exact scroll position
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - 100; // 100px offset
-
-      // Smooth scroll to exact position
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-
-      // Reset manual scroll flag after animation completes
-      setTimeout(() => {
-        setIsManualScroll(false);
-      }, 500); // Adjust timing to match scroll animation duration
+      onNavigate(targetId);
     }
   };
 
