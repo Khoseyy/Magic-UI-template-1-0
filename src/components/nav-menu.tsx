@@ -80,7 +80,7 @@ export function NavMenu({ activeSection, onNavigate }: NavMenuProps) {
           <motion.li
             animate={{ left, width }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 my-1.5 rounded-full bg-accent/60 border border-border"
+            className="absolute left-0 top-1.5 bottom-1.5 rounded-full bg-accent/60 border border-border"
           />
         )}
       </ul>
