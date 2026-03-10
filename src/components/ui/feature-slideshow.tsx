@@ -102,7 +102,8 @@ export const Feature = ({
 }: FeatureProps) => {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
-  const [previousIndex, setPreviousIndex] = useState<number>(-1);
+  const [displayedIndex, setDisplayedIndex] = useState<number>(-1);
+  const [outgoingIndex, setOutgoingIndex] = useState<number>(-1);
 
   const carouselRef = useRef<HTMLUListElement>(null);
   const ref = useRef(null);
@@ -175,17 +176,27 @@ export const Feature = ({
     }
   }, [featureItems.length]);
 
-  // Handle image transition
   useEffect(() => {
-    if (currentIndex !== previousIndex) {
-      setImageLoaded(false);
-      setPreviousIndex(currentIndex);
-    }
-  }, [currentIndex, previousIndex]);
+    if (currentIndex < 0) return;
 
-  // Replace the existing image rendering section with this optimized version
+    if (displayedIndex < 0) {
+      setDisplayedIndex(currentIndex);
+      setOutgoingIndex(-1);
+      setImageLoaded(false);
+      return;
+    }
+
+    if (currentIndex !== displayedIndex) {
+      setOutgoingIndex(displayedIndex);
+      setDisplayedIndex(currentIndex);
+      setImageLoaded(false);
+    }
+  }, [currentIndex, displayedIndex]);
+
   const renderMedia = () => {
-    const currentItem = featureItems[currentIndex];
+    const renderIndex = displayedIndex >= 0 ? displayedIndex : currentIndex;
+    const currentItem = featureItems[renderIndex];
+    const outgoingItem = featureItems[outgoingIndex];
 
     if (!currentItem) {
       return (
@@ -204,22 +215,23 @@ export const Feature = ({
     if (currentItem.image) {
       return (
         <div className="relative h-full w-full overflow-hidden">
-          {/* Placeholder/Fallback */}
-          <div
-            className={cn(
-              "absolute inset-0 bg-gray-200 rounded-xl border border-neutral-300/50",
-              "transition-all duration-150",
-              imageLoaded ? "opacity-0" : "opacity-100"
-            )}
-          />
+          {outgoingIndex >= 0 && outgoingItem?.image ? (
+            <img
+              src={outgoingItem.image}
+              alt={outgoingItem.title}
+              className="absolute inset-0 aspect-auto h-full w-full rounded-xl border border-neutral-300/50 object-cover p-1"
+              aria-hidden="true"
+              loading="eager"
+              decoding="async"
+            />
+          ) : null}
 
-          {/* Main Image */}
           <motion.img
-            key={currentIndex}
+            key={renderIndex}
             src={currentItem.image}
             alt={currentItem.title}
             className={cn(
-              "aspect-auto h-full w-full rounded-xl border border-neutral-300/50 object-cover p-1",
+              "absolute inset-0 aspect-auto h-full w-full rounded-xl border border-neutral-300/50 object-cover p-1",
               "transition-all duration-300",
               imageLoaded ? "opacity-100 blur-0" : "opacity-0 blur-xl"
             )}
@@ -235,7 +247,10 @@ export const Feature = ({
               duration: 0.3,
               ease: [0.4, 0, 0.2, 1],
             }}
-            onLoad={() => setImageLoaded(true)}
+            onLoad={() => {
+              setImageLoaded(true);
+              setOutgoingIndex(-1);
+            }}
             loading="lazy"
             decoding="async"
             sizes="(max-width: 768px) 100vw, 50vw"

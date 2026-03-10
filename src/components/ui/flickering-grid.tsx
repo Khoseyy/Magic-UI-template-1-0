@@ -75,7 +75,18 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
         maskCtx.font = `${fontWeight} ${fontSize}px "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
         maskCtx.textAlign = "center";
         maskCtx.textBaseline = "middle";
-        maskCtx.fillText(text, width / (2 * dpr), height / (2 * dpr));
+        const lines = text.split("\n");
+        const lineHeight = fontSize * 1.1;
+        const startY =
+          height / (2 * dpr) - ((lines.length - 1) * lineHeight) / 2;
+
+        lines.forEach((line, index) => {
+          maskCtx.fillText(
+            line,
+            width / (2 * dpr),
+            startY + index * lineHeight,
+          );
+        });
         maskCtx.restore();
       }
 
