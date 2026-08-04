@@ -80,20 +80,29 @@ export function SocialProofTestimonials({
     <div className="h-full">
       <div className="px-10">
         <div className="relative max-h-[750px] overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {loopingColumns.map((column, index) => (
-              <Marquee
-                vertical
-                key={`column-${index}`}
-                className={cn(marqueeConfigs[index]?.className ?? "[--duration:52s]")}
-                reverse={marqueeConfigs[index]?.reverse ?? false}
-                repeat={5}
-              >
-                {column.map((card) => (
+          <div className="grid gap-6">
+            <div className="grid grid-cols-1 gap-6 md:hidden">
+              <Marquee vertical repeat={2} className="[--duration:60s]">
+                {testimonials.map((card) => (
                   <TestimonialCard {...card} key={card.id} />
                 ))}
               </Marquee>
-            ))}
+            </div>
+            <div className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {loopingColumns.map((column, index) => (
+                <Marquee
+                  vertical
+                  key={`column-${index}`}
+                  className={cn(marqueeConfigs[index]?.className ?? "[--duration:52s]")}
+                  reverse={marqueeConfigs[index]?.reverse ?? false}
+                  repeat={5}
+                >
+                  {column.map((card) => (
+                    <TestimonialCard {...card} key={card.id} />
+                  ))}
+                </Marquee>
+              ))}
+            </div>
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/6 md:h-1/5 w-full bg-gradient-to-t from-background from-20%"></div>
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/6 md:h-1/5 w-full bg-gradient-to-b from-background from-20%"></div>
