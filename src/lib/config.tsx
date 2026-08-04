@@ -629,7 +629,7 @@ export const siteConfig = {
       description: (
         <div className="space-y-2">
           <p>
-            Professional and hard working. There was no problem that couldn&apos;t be solved and, with my low budget, Hosey Solutions made every penny count in our Google Ads campaign, turning it into a massive success.
+            Professional and hard working. There was no problem that couldn&apos;t be solved and, with my low budget, <Highlight>Hosey Solutions made every penny count</Highlight> in our Google Ads campaign, turning it into a massive success.
           </p>
         </div>
       ),
@@ -678,7 +678,7 @@ export const siteConfig = {
             <Highlight>Hosey Solutions gave our PPC campaigns a new direction</Highlight>, built high-converting landing pages, and kept optimising performance.
           </p>
           <p>
-            <Highlight>Hosey Solutions is sharp, reliable, and delivers results.</Highlight>
+            <Highlight>They are sharp, reliable, and deliver results.</Highlight>
           </p>
         </div>
       ),
