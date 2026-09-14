@@ -21,11 +21,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
+  title: "Kristof Hosey | Strategic Marketer & Google Specialist",
+  description:
+    "Kristof Hosey - Google Ads, copywriting and CRO for DTC brands. Founder of Hosey Solutions, turning marketing strategy into measurable revenue.",
   icons: {
     icon: "/favicon.svg",
   },
